@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview &mdash; huTools v0.49 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.49',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="huTools v0.49 documentation" href="index.html" />
+    <link rel="next" title="Changes" href="changes.html" />
+    <link rel="prev" title="huTools" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="changes.html" title="Changes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="huTools"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">huTools v0.49 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-huTools.async">
+<span id="async"></span><h2>async<a class="headerlink" href="#module-huTools.async" title="Permalink to this headline">¶</a></h2>
+<p>async.py - functions for asyncrounous code</p>
+<p>Created by Maximillian Dornseif on 2009-02-15.
+Copyright (c) 2009 HUDORA. All rights reserved.
+parts based on <a class="reference external" href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/84317">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/84317</a></p>
+<dl class="class">
+<dt id="huTools.async.Future">
+<em class="property">class </em><tt class="descclassname">huTools.async.</tt><tt class="descname">Future</tt><big>(</big><em>func</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#huTools.async.Future" title="Permalink to this definition">¶</a></dt>
+<dd><p>This calls a function in a separate thread and returns a function waiting for that thread to finish.</p>
+<p>Typical use:</p>
+<p>tagfuture = Future(get_slow_tagcount, &#8216;parameter&#8217;) # starts a separate thread
+... do something else ...
+tagcount = tagfuture() # waits for thread to finish and returns result</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.bank">
+<span id="bank"></span><h2>bank<a class="headerlink" href="#module-huTools.bank" title="Permalink to this headline">¶</a></h2>
+<p>bank.py</p>
+<p>Created by Christian Klein on 2010-03-25.
+Copyright (c) 2010 Christian Klein. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.bank.check_iban">
+<tt class="descclassname">huTools.bank.</tt><tt class="descname">check_iban</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#huTools.bank.check_iban" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validiere (errechnete) IBAN</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.bank.convert_character">
+<tt class="descclassname">huTools.bank.</tt><tt class="descname">convert_character</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#huTools.bank.convert_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Konvertierung von nicht-numerischen Zeichen in einer IBAN</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.bank.iban">
+<tt class="descclassname">huTools.bank.</tt><tt class="descname">iban</tt><big>(</big><em>ktonr</em>, <em>blz</em>, <em>land='DE'</em><big>)</big><a class="headerlink" href="#huTools.bank.iban" title="Permalink to this definition">¶</a></dt>
+<dd><p>Berechnet die International Bank Account Number für deutsche Konten</p>
+<p>Zunächst wird die Basic Bank Account Number für deutsche Konten berechnet.
+Der Laendercode wird mit zwei &#8216;0&#8217; aufgefüllt und an die BBAN gehangen.
+Aus diesem wird der Prüfcode als Modulo 97-10 (DIN ISO 7064) berechnet.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.calendar.formats">
+<span id="calendar"></span><h2>calendar<a class="headerlink" href="#module-huTools.calendar.formats" title="Permalink to this headline">¶</a></h2>
+<p>formats.py - formating and parsing of timestamps.</p>
+<p>Created by Maximillian Dornseif on 2007-06-24.
+Copyright (c) 2007 HUDORA GmbH. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.calendar.formats.rfc2616_date">
+<tt class="descclassname">huTools.calendar.formats.</tt><tt class="descname">rfc2616_date</tt><big>(</big><em>date=None</em><big>)</big><a class="headerlink" href="#huTools.calendar.formats.rfc2616_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formates a datetime object according to RfC 2616.</p>
+<p>RfC 2616 is a subset of RFC 1123 date.
+Weekday and month names for HTTP date/time formatting; always English!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.formats.rfc2616_date_parse">
+<tt class="descclassname">huTools.calendar.formats.</tt><tt class="descname">rfc2616_date_parse</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.calendar.formats.rfc2616_date_parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses an RfC 2616/2822 timestapm into a datetime object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.formats.rfc3339_date">
+<tt class="descclassname">huTools.calendar.formats.</tt><tt class="descname">rfc3339_date</tt><big>(</big><em>date=None</em><big>)</big><a class="headerlink" href="#huTools.calendar.formats.rfc3339_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formates a datetime object according to RfC 3339.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.formats.rfc3339_date_parse">
+<tt class="descclassname">huTools.calendar.formats.</tt><tt class="descname">rfc3339_date_parse</tt><big>(</big><em>date</em><big>)</big><a class="headerlink" href="#huTools.calendar.formats.rfc3339_date_parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses an RfC 3339 timestamp into a datetime object.</p>
+</dd></dl>
+
+<span class="target" id="module-huTools.calendar.tools"></span><p>tools.py - Functions for date manipulation</p>
+<p>Created by Christian Klein on 2010-04-22.
+Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
+<dl class="class">
+<dt id="huTools.calendar.tools.DateTruncTestCase">
+<em class="property">class </em><tt class="descclassname">huTools.calendar.tools.</tt><tt class="descname">DateTruncTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#huTools.calendar.tools.DateTruncTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for date_trunc</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="huTools.calendar.tools.WeekTestCase">
+<em class="property">class </em><tt class="descclassname">huTools.calendar.tools.</tt><tt class="descname">WeekTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#huTools.calendar.tools.WeekTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for get_week</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.tools.date_trunc">
+<tt class="descclassname">huTools.calendar.tools.</tt><tt class="descname">date_trunc</tt><big>(</big><em>date</em>, <em>trtype</em><big>)</big><a class="headerlink" href="#huTools.calendar.tools.date_trunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Truncate date</p>
+<p>This function is inspired by date_trunc from PostgreSQL, see
+<a class="reference external" href="http://www.postgresql.org/docs/8.1/static/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC">http://www.postgresql.org/docs/8.1/static/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.tools.get_week">
+<tt class="descclassname">huTools.calendar.tools.</tt><tt class="descname">get_week</tt><big>(</big><em>date</em><big>)</big><a class="headerlink" href="#huTools.calendar.tools.get_week" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the week of the year for a given date
+and returns the year and week number.</p>
+</dd></dl>
+
+<span class="target" id="module-huTools.calendar.workdays"></span><p>workdays.py - calculate the number of workdays between two datetime objects.</p>
+<p>Created by Christian Klein on 2006-11-28. Fiddeled with by Maximillian Dornseif.
+BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.calendar.workdays.add_to_day">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">add_to_day</tt><big>(</big><em>day</em>, <em>offset</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.add_to_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the date n days before or after day</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.add_workdays_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">add_workdays_german</tt><big>(</big><em>startday</em>, <em>count</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.add_workdays_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds &lt;count&gt; workdays to &lt;startday&gt;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.easter">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">easter</tt><big>(</big><em>year</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.easter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the day of Easter sunday for &#8216;year&#8217;.
+This function only works betweeen 1900 and 2099</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.easter_related_holidays">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">easter_related_holidays</tt><big>(</big><em>year</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.easter_related_holidays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of holidays which are related to easter for &#8216;year&#8217;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.holidays_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">holidays_german</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.holidays_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of dates between start and end that are holidays.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.is_workday_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">is_workday_german</tt><big>(</big><em>day</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.is_workday_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a day is a workday in germany (NRW).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">is_workday_german</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_workday_german</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.next_workday_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">next_workday_german</tt><big>(</big><em>startday</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.next_workday_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next workday after startday.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">next_workday_german</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">29</span><span class="p">))</span>
+<span class="go">datetime.date(2007, 1, 2)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.previous_workday_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">previous_workday_german</tt><big>(</big><em>startday</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.previous_workday_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the workday before startday.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">previous_workday_german</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">datetime.date(2006, 12, 29)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.workdayhours_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">workdayhours_german</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.workdayhours_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the number of hours expect weekends and german holidays between two given datetimes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.workdays">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">workdays</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.workdays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the number of working days (Mo-Fr) between two given dates.</p>
+<p>Whereas the workdays are calculated siilar to Python slice notation: [start : end[
+Example:
+&gt;&gt;&gt; workdays(datetime.date(2007, 1, 26), datetime.date(2007,  1,  27)) # Fr - Sa
+1
+&gt;&gt;&gt; workdays(datetime.date(2007, 1, 28), datetime.date(2007,  1,  29)) # Su - Mo
+0</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.calendar.workdays.workdays_german">
+<tt class="descclassname">huTools.calendar.workdays.</tt><tt class="descname">workdays_german</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#huTools.calendar.workdays.workdays_german" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the number of working days between two given dates while considering german holidays.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.checksumming">
+<span id="checksumming"></span><h2>checksumming<a class="headerlink" href="#module-huTools.checksumming" title="Permalink to this headline">¶</a></h2>
+<p>checksumming.py - various checksum functions.</p>
+<p>Created by Maximillian Dornseif on 2006-11-05.</p>
+<p>This file can be used under an BSD License.</p>
+<dl class="function">
+<dt id="huTools.checksumming.build_verhoeff_id">
+<tt class="descclassname">huTools.checksumming.</tt><tt class="descname">build_verhoeff_id</tt><big>(</big><em>prefix</em>, <em>number</em>, <em>length=4</em><big>)</big><a class="headerlink" href="#huTools.checksumming.build_verhoeff_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut for building IDs with prefix and verhoeff check digit</p>
+<dl class="docutils">
+<dt>List of existing prefixes:</dt>
+<dd><a class="reference external" href="https://cybernetics.hudora.biz/intern/trac/wiki/NummernKreise">https://cybernetics.hudora.biz/intern/trac/wiki/NummernKreise</a></dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">build_verhoeff_id</span><span class="p">(</span><span class="s">&quot;Foo&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;Foo00011&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">build_verhoeff_id</span><span class="p">(</span><span class="s">&quot;Foo&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">&#39;Foo000000017&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.checksumming.dpd_digit">
+<tt class="descclassname">huTools.checksumming.</tt><tt class="descname">dpd_digit</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#huTools.checksumming.dpd_digit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the Checksum for DPD Packets.</p>
+<p>See <a class="reference external" href="http://static.23.nu/md/Pictures/BIC3_DPDPaketscheinspez_Neu_D_v101.pdf">http://static.23.nu/md/Pictures/BIC3_DPDPaketscheinspez_Neu_D_v101.pdf</a> page 22 for an explanation.</p>
+<p>Exaple:
+&gt;&gt;&gt; dpd_digit(&#8216;400599871650&#8217;)
+&#8216;E&#8217;
+&gt;&gt;&gt; dpd_digit(&#8216;007110601632532948375179276&#8217;)
+&#8216;A&#8217;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.checksumming.ean_digit">
+<tt class="descclassname">huTools.checksumming.</tt><tt class="descname">ean_digit</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#huTools.checksumming.ean_digit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate UPCA/EAN13/NVE checksum for any given string consiting of an arbitary number of digits.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ean_digit</span><span class="p">(</span><span class="s">&#39;400599871650&#39;</span><span class="p">)</span>
+<span class="go">&#39;2&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ean_digit</span><span class="p">(</span><span class="s">&#39;34005998000000027&#39;</span><span class="p">)</span>
+<span class="go">&#39;5&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.checksumming.verhoeff_digit">
+<tt class="descclassname">huTools.checksumming.</tt><tt class="descname">verhoeff_digit</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#huTools.checksumming.verhoeff_digit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implemention of Verhoeff&#8217;s Dihedral Check Digit based on code from Nick Galbreath</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.checksumming.verify_ean">
+<tt class="descclassname">huTools.checksumming.</tt><tt class="descname">verify_ean</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#huTools.checksumming.verify_ean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a given strin ends withh a valid check digit.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">verify_ean</span><span class="p">(</span><span class="s">&#39;4005998000007&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verify_ean</span><span class="p">(</span><span class="s">&#39;4005998000000&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verify_ean</span><span class="p">(</span><span class="s">&#39;foobar&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="couch">
+<h2>couch<a class="headerlink" href="#couch" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+</div>
+<div class="section" id="module-huTools.daemon">
+<span id="daemon"></span><h2>daemon<a class="headerlink" href="#module-huTools.daemon" title="Permalink to this headline">¶</a></h2>
+<p>daemon.py</p>
+<p>Created by Maximillian Dornseif on 2009-08-26.
+Copyright (c) 2009 HUDORA. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.daemon.daemonize">
+<tt class="descclassname">huTools.daemon.</tt><tt class="descname">daemonize</tt><big>(</big><em>pidfile=None</em>, <em>stdoutlogfile=None</em><big>)</big><a class="headerlink" href="#huTools.daemon.daemonize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detach a process from the controlling terminal and run it in the
+background as a daemon.</p>
+<p>based on <a class="reference external" href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/278731">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/278731</a></p>
+<p>daemonize</p>
+<ol class="arabic simple">
+<li>The current working directory set to the &#8220;/&#8221; directory.</li>
+<li>The current file creation mode mask set to 0.</li>
+<li>Close all open files (1024).</li>
+<li>Redirect standard I/O streams to &#8220;/dev/null&#8221;.</li>
+</ol>
+<p>A failed call to fork() now raises an exception.</p>
+<p>References</p>
+<ol class="arabic">
+<li><p class="first">Advanced Programming in the Unix Environment: W. Richard Stevens</p>
+</li>
+<li><dl class="first docutils">
+<dt>Unix Programming Frequently Asked Questions:</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.erlenstar.demon.co.uk/unix/faq_toc.html">http://www.erlenstar.demon.co.uk/unix/faq_toc.html</a></p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.decorators">
+<span id="decorators"></span><h2>decorators<a class="headerlink" href="#module-huTools.decorators" title="Permalink to this headline">¶</a></h2>
+<p>decorators.py</p>
+<p>Created by Maximillian Dornseif on 2007-05-10.
+Copyright (c) 2007 HUDORA GmbH. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.decorators.cache_function">
+<tt class="descclassname">huTools.decorators.</tt><tt class="descname">cache_function</tt><big>(</big><em>length</em><big>)</big><a class="headerlink" href="#huTools.decorators.cache_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>A variant of the snippet posted by Jeff Wheeler at
+<a class="reference external" href="http://www.djangosnippets.org/snippets/109/">http://www.djangosnippets.org/snippets/109/</a></p>
+<p>Caches a function, using the function and its arguments as the key, and the return
+value as the value saved. It passes all arguments on to the function, as
+it should.</p>
+<p>The decorator itself takes a length argument, which is the number of
+seconds the cache will keep the result around.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.decorators.func_once">
+<tt class="descclassname">huTools.decorators.</tt><tt class="descname">func_once</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#huTools.decorators.func_once" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator that runs a function only once.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.decorators.memoize">
+<tt class="descclassname">huTools.decorators.</tt><tt class="descname">memoize</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#huTools.decorators.memoize" title="Permalink to this definition">¶</a></dt>
+<dd><p>This decorator caches the results of the function it decorates.</p>
+<p>See <a class="reference external" href="http://en.wikipedia.org/wiki/Memoisation">http://en.wikipedia.org/wiki/Memoisation</a> for fare more than ypou ever want to know on that topic.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.decorators.method_once">
+<tt class="descclassname">huTools.decorators.</tt><tt class="descname">method_once</tt><big>(</big><em>method</em><big>)</big><a class="headerlink" href="#huTools.decorators.method_once" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator that runs a method only once.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.decorators.none_on_exception">
+<tt class="descclassname">huTools.decorators.</tt><tt class="descname">none_on_exception</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#huTools.decorators.none_on_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator that returns the return value of a function or None if an exception is raised.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.fs">
+<span id="fs"></span><h2>fs<a class="headerlink" href="#module-huTools.fs" title="Permalink to this headline">¶</a></h2>
+<p>fs.py filesystem-related functions</p>
+<p>Created by Maximillian Dornseif on 2008-08-16.
+Copyright (c) 2008 HUDORA. Consider it BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.fs.makedirhier">
+<tt class="descclassname">huTools.fs.</tt><tt class="descname">makedirhier</tt><big>(</big><em>dirnmame</em><big>)</big><a class="headerlink" href="#huTools.fs.makedirhier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Created &#8216;dirname&#8217; if needes and all intermediate directories.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="hulint">
+<h2>huLint<a class="headerlink" href="#hulint" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+</div>
+<div class="section" id="module-huTools.humessaging">
+<span id="humessaging"></span><h2>humessaging<a class="headerlink" href="#module-huTools.humessaging" title="Permalink to this headline">¶</a></h2>
+<p>humessaging.py - tools for creating and halndling Messages complying with the Hudora Message Format.</p>
+<p>The HUDORA Message format is a set of simple conventions to format messages in a
+message system agnostic way. Messages are encoded in JSON.</p>
+<p>Created by Maximillian Dornseif on 2009-07-29.
+Copyright (c) 2009 HUDORA. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.humessaging.decode">
+<tt class="descclassname">huTools.humessaging.</tt><tt class="descname">decode</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.humessaging.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode a message from a valid wire representation.</p>
+<p>Besides the types familar from Python&#8217;s json module it can unserialize Decimal() objects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;{&quot;created_by&quot;:&quot;test&quot;,&quot;guid&quot;:123,&quot;num&quot;:5.00}&#39;</span><span class="p">)</span>
+<span class="go">{&#39;guid&#39;: 123, &#39;num&#39;: Decimal(&#39;5.00&#39;), &#39;created_by&#39;: &#39;test&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.humessaging.empty_message">
+<tt class="descclassname">huTools.humessaging.</tt><tt class="descname">empty_message</tt><big>(</big><em>creator</em>, <em>audit_info=''</em>, <em>audit_trail=''</em>, <em>guid=''</em><big>)</big><a class="headerlink" href="#huTools.humessaging.empty_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an empty message template following the huMessaging Standard.</p>
+<dl class="docutils">
+<dt>creator</dt>
+<dd>user (prefered) or library tool which created the message. Suitable for audit messages.
+Example: &#8220;Maximillian Dornseif via cs.zwitscher/r3456&#8221;</dd>
+<dt>audit_info</dt>
+<dd>a human readable description of the processing stage.
+Example: &#8220;flagged as problematic by nachschieber.py&#8221;</dd>
+<dt>audit_trail</dt>
+<dd>semicolen sparated list of previous processing stages.</dd>
+<dt>guid</dt>
+<dd>Unique id of this message. Should never repeat. Generate by something unique for your
+processing step. E.g. &#8220;lieferschenrueckmeldung-4234543&#8221;. Should only contain
+printable ASCII characters.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.humessaging.encode">
+<tt class="descclassname">huTools.humessaging.</tt><tt class="descname">encode</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#huTools.humessaging.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode the dict-like message into a valid wire representation.</p>
+<p>Besides the types familar from Python&#8217;s json module it can serialize Decimal() objects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">encode</span><span class="p">({</span><span class="s">&#39;guid&#39;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="s">&#39;created_by&#39;</span><span class="p">:</span> <span class="s">&#39;test&#39;</span><span class="p">,</span> <span class="s">&#39;num&#39;</span><span class="p">:</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;5.00&#39;</span><span class="p">)})</span>
+<span class="go">&#39;{&quot;created_by&quot;:&quot;test&quot;,&quot;guid&quot;:123,&quot;num&quot;:5.00}&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.humessaging.extend_audittrail">
+<tt class="descclassname">huTools.humessaging.</tt><tt class="descname">extend_audittrail</tt><big>(</big><em>audit_info=''</em>, <em>audit_trail=''</em><big>)</big><a class="headerlink" href="#huTools.humessaging.extend_audittrail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append audit_info to audit_trail.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">extend_audittrail</span><span class="p">()</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">extend_audittrail</span><span class="p">(</span><span class="s">&#39;a;a&#39;</span><span class="p">)</span>
+<span class="go">&#39;a a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">extend_audittrail</span><span class="p">(</span><span class="s">&#39;b;b&#39;</span><span class="p">,</span> <span class="s">&#39;a a&#39;</span><span class="p">)</span>
+<span class="go">&#39;a a;b b&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.humessaging.setup_queue">
+<tt class="descclassname">huTools.humessaging.</tt><tt class="descname">setup_queue</tt><big>(</big><em>chan</em>, <em>name</em>, <em>durable=False</em>, <em>auto_delete=False</em>, <em>exclusive=False</em><big>)</big><a class="headerlink" href="#huTools.humessaging.setup_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up AMQP Queue &#8216;name&#8217; and the assorted exchange, routing key and stuff dictated by AMQP</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.luids">
+<span id="luids"></span><h2>luids<a class="headerlink" href="#module-huTools.luids" title="Permalink to this headline">¶</a></h2>
+<p>luids.py - Tools for generating various local unique IDs.</p>
+<p>This module tries to generate IDs which are guaranteed to be unique on a machine. Compared with the fine uuid
+module in python 2.5 we try to be unique only on a single host and not globally. In turn we provide stronger
+guarantees that no ID will be ever duplicate on a machine. Therfor our IDs are perfect for generating unique
+filenames in a directory used by severall processes/threads.</p>
+<p>See <a class="reference external" href="http://docs.python.org/lib/module-uuid.html">http://docs.python.org/lib/module-uuid.html</a> and <a class="reference external" href="http://zesty.ca/python/uuid.py">http://zesty.ca/python/uuid.py</a> for the Python standard
+uuid module.</p>
+<p>Use guid128() if you are looking for a compact, URL-save representation of uuid output.</p>
+<p>Created by Maximillian Dornseif on 2006-11-08. BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.luids.guid128">
+<tt class="descclassname">huTools.luids.</tt><tt class="descname">guid128</tt><big>(</big><em>salt=None</em><big>)</big><a class="headerlink" href="#huTools.luids.guid128" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an 26 character ID which should be globally unique.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">guid128</span><span class="p">()</span>
+<span class="go">&#39;MTB2ONDSL3YWJN3CA6XIG7O4HM&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.luids.luid">
+<tt class="descclassname">huTools.luids.</tt><tt class="descname">luid</tt><big>(</big><big>)</big><a class="headerlink" href="#huTools.luids.luid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an ID which should be globally unique.</p>
+<p>This only works if gethostname() returns an unique name. This usually is true to a certain degree if you
+use your machine in an NIS/NFS configuration. So this function is mainly usefull to generate unique
+filenames for NFS-shared filesystems.</p>
+<p>So this is very well suited for generationg IDs in a setup where you controll all the machines and thus
+hostnames.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.luids.unique_machine32">
+<tt class="descclassname">huTools.luids.</tt><tt class="descname">unique_machine32</tt><big>(</big><big>)</big><a class="headerlink" href="#huTools.luids.unique_machine32" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an ID which has a low probability of repeating on this machine.</p>
+<p>What goes where:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#      PP ^</span>
+<span class="c">#    TTtt ^</span>
+<span class="c">#    c</span>
+</pre></div>
+</div>
+<p>So the first byte is an combination of a counter (c) and the first byte of the least significant
+(and thus fastest changing) word (TT) of the current timestamp. This is followed by the next byte of the
+least significant word of the current timestamp (TT). The next two bytes are the PID (PP) and the most
+significant word of the current timestamp (tt) XORed.</p>
+<p>Assuming 16bit PIDs this should result in unique IDs on a machine even with multi-threading. But there
+are degenerated scenarios (more than 2**16 concurrent/fast spawning processes, while there are more than
+2**8 threads bussy generating unique IDs) where the IDs might not be unique.
+To avoid these use unique_machine64.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.luids.unique_machine64">
+<tt class="descclassname">huTools.luids.</tt><tt class="descname">unique_machine64</tt><big>(</big><big>)</big><a class="headerlink" href="#huTools.luids.unique_machine64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an ID which should never repeat on this machine.</p>
+<p>This function is suggested as the base for generating filenames and the like. Processes/Threads
+running on the same machine should never be able to generate the same ID and no ID should be created
+twice.</p>
+<p>What goes where:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#    TTTT     ^</span>
+<span class="c">#        PP   ^</span>
+<span class="c">#        cccc</span>
+</pre></div>
+</div>
+<p>The first two words are the current timestamp. The next word is the current  PID xored with the most
+significant word of a counter. The last byte is the most significant word of a counter.
+The counter is being increased by 1 in every call. This should make this function thread
+save unless you call it more than 2**16 times per second.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.NetStringIO">
+<span id="netstringio"></span><h2>NetStringIO<a class="headerlink" href="#module-huTools.NetStringIO" title="Permalink to this headline">¶</a></h2>
+<p>Module for Communication via NetStrings.</p>
+<p>This module holds a single class named NetStringIO which wraps
+about a file handle and uses NetStrings vor all Communication via
+this filehandle.  For more information in netstrings see
+<a class="reference external" href="http://cr.yp.to/proto/netstrings.txt">http://cr.yp.to/proto/netstrings.txt</a></p>
+<p>Authors:</p>
+<p>This Software was written by <a class="reference external" href="mailto:drt&#37;&#52;&#48;un&#46;bewaff&#46;net">drt<span>&#64;</span>un<span>&#46;</span>bewaff<span>&#46;</span>net</a> for the twisd AG,
+Bonn, Germany. The twisd AG kindly donated it as Freie Software.</p>
+<dl class="class">
+<dt id="huTools.NetStringIO.NetStringIO">
+<em class="property">class </em><tt class="descclassname">huTools.NetStringIO.</tt><tt class="descname">NetStringIO</tt><big>(</big><em>fileo</em>, <em>delim='n'</em><big>)</big><a class="headerlink" href="#huTools.NetStringIO.NetStringIO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warping arround a file object changing all I/O to netstrings.</p>
+<blockquote>
+<p>I use this class to warp it arround filehandles obtained by a call
+to socket.makefile(). With this I can build protocols using
+netstrings with ease. For more information in netstrings see
+<a class="reference external" href="http://cr.yp.to/proto/netstrings.txt">http://cr.yp.to/proto/netstrings.txt</a></p>
+<p>I like sending an &#8216;</p>
+</blockquote>
+<dl class="docutils">
+<dt>&#8216; after every netstring. This makes</dt>
+<dd>inspection of data on the wire much more readable. You can change
+this behaviour by calling the constructor with an optional empty
+string argument. You even can specify another delimiter than &#8216;</dd>
+</dl>
+<p>&#8216;</p>
+<dl class="method">
+<dt id="huTools.NetStringIO.NetStringIO.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#huTools.NetStringIO.NetStringIO.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read from the underlying file object.</p>
+<p>If the data does not contain a valid netstring or is not
+followed by the delimiter we raise IOerror.</p>
+<p>This is more or less an 1:1 port of the code in
+<a class="reference external" href="http://cr.yp.to/proto/netstrings.txt">http://cr.yp.to/proto/netstrings.txt</a> - any more pythonish ways
+to do this?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.obfuscation">
+<span id="obfuscation"></span><h2>obfuscation<a class="headerlink" href="#module-huTools.obfuscation" title="Permalink to this headline">¶</a></h2>
+<p>hutools/obfuscation.py this contains code to hide data from your little sister.</p>
+<p>THIS IS NOT INDUSTRIAL-STRENGTH CRYPTO - use OpenSSL abd friends if you need real crypto!</p>
+<p>Created by Maximillian Dornseif on 2009-08-31.
+Copyright (c) 2009 HUDORA. All rights reserved.</p>
+<dl class="class">
+<dt id="huTools.obfuscation.RC4">
+<em class="property">class </em><tt class="descclassname">huTools.obfuscation.</tt><tt class="descname">RC4</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#huTools.obfuscation.RC4" title="Permalink to this definition">¶</a></dt>
+<dd><p>RC4 en-/decription.</p>
+<p>Based on code from Thomas Dixon at <a class="reference external" href="http://www.macshadows.com/forums/index.php?showtopic=5766">http://www.macshadows.com/forums/index.php?showtopic=5766</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">RC4</span><span class="p">(</span><span class="s">&#39;sekrit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">RC4</span><span class="p">(</span><span class="s">&#39;sekrit&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">))</span>
+<span class="go">&#39;foo&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.printing">
+<span id="printing"></span><h2>printing<a class="headerlink" href="#module-huTools.printing" title="Permalink to this headline">¶</a></h2>
+<p>printing.py simple minded toolkit for printing on CUPS.</p>
+<p>Created by Maximillian Dornseif on 2006-11-19. BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.printing.print_data">
+<tt class="descclassname">huTools.printing.</tt><tt class="descname">print_data</tt><big>(</big><em>data</em>, <em>jobname=None</em>, <em>printer=None</em>, <em>copies=1</em>, <em>printserver='printserver.local.hudora.biz'</em><big>)</big><a class="headerlink" href="#huTools.printing.print_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a datastream.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.printing.print_file">
+<tt class="descclassname">huTools.printing.</tt><tt class="descname">print_file</tt><big>(</big><em>filename</em>, <em>jobname=None</em>, <em>printer=None</em>, <em>copies=1</em><big>)</big><a class="headerlink" href="#huTools.printing.print_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.protocols">
+<span id="protocols"></span><h2>protocols<a class="headerlink" href="#module-huTools.protocols" title="Permalink to this headline">¶</a></h2>
+<p>protocols.py - handle data confoming the the Hudora standard protocols.
+See <a class="reference external" href="http://github.com/hudora/huTools/tree/master/doc/standards">http://github.com/hudora/huTools/tree/master/doc/standards</a> for details.</p>
+<p>Created by Maximillian Dornseif on 2009-12-27.
+Copyright (c) 2009 HUDORA. All rights reserved.</p>
+<p>Code is based on <a class="reference external" href="http://code.activestate.com/recipes/573463/">http://code.activestate.com/recipes/573463/</a></p>
+<dl class="function">
+<dt id="huTools.protocols.dicttoxml">
+<tt class="descclassname">huTools.protocols.</tt><tt class="descname">dicttoxml</tt><big>(</big><em>datadict</em>, <em>roottag='data'</em><big>)</big><a class="headerlink" href="#huTools.protocols.dicttoxml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a dict representing one of the protocoles described in
+<a class="reference external" href="http://github.com/hudora/huTools/tree/master/doc/standards">http://github.com/hudora/huTools/tree/master/doc/standards</a> to XML.</p>
+<p>Returns an UTF-8 encoded String.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;kommiauftragsnr&quot;</span><span class="p">:</span><span class="mi">2103839</span><span class="p">,</span> <span class="s">&quot;anliefertermin&quot;</span><span class="p">:</span><span class="s">&quot;2009-11-25&quot;</span><span class="p">,</span> <span class="s">&quot;prioritaet&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="gp">... </span><span class="s">&quot;ort&quot;</span><span class="p">:</span> <span class="s">u&quot;Hücksenwagen&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="s">&quot;positionen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;menge&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&quot;artnr&quot;</span><span class="p">:</span> <span class="s">&quot;14640/XL&quot;</span><span class="p">,</span> <span class="s">&quot;posnr&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},],</span>
+<span class="gp">... </span><span class="s">&quot;versandeinweisungen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;guid&quot;</span><span class="p">:</span> <span class="s">&quot;2103839-XalE&quot;</span><span class="p">,</span> <span class="s">&quot;bezeichner&quot;</span><span class="p">:</span> <span class="s">&quot;avisierung48h&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="s">&quot;anweisung&quot;</span><span class="p">:</span> <span class="s">&quot;48h vor Anlieferung unter 0900-LOGISTIK avisieren&quot;</span><span class="p">},</span>
+<span class="go">...]}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">toxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&#39;kommiauftrag&#39;</span><span class="p">)</span>
+<span class="go">&#39;&#39;&#39;&lt;kommiauftrag&gt;</span>
+<span class="go">&lt;anliefertermin&gt;2009-11-25&lt;/anliefertermin&gt;</span>
+<span class="go">&lt;positionen&gt;</span>
+<span class="go">    &lt;position&gt;</span>
+<span class="go">        &lt;posnr&gt;1&lt;/posnr&gt;</span>
+<span class="go">        &lt;menge&gt;12&lt;/menge&gt;</span>
+<span class="go">        &lt;artnr&gt;14640/XL&lt;/artnr&gt;</span>
+<span class="go">    &lt;/position&gt;</span>
+<span class="go">&lt;/positionen&gt;</span>
+<span class="go">&lt;ort&gt;H&amp;#xC3;&amp;#xBC;cksenwagen&lt;/ort&gt;</span>
+<span class="go">&lt;versandeinweisungen&gt;</span>
+<span class="go">    &lt;versandeinweisung&gt;</span>
+<span class="go">        &lt;bezeichner&gt;avisierung48h&lt;/bezeichner&gt;</span>
+<span class="go">        &lt;anweisung&gt;48h vor Anlieferung unter 0900-LOGISTIK avisieren&lt;/anweisung&gt;</span>
+<span class="go">        &lt;guid&gt;2103839-XalE&lt;/guid&gt;</span>
+<span class="go">    &lt;/versandeinweisung&gt;</span>
+<span class="go">&lt;/versandeinweisungen&gt;</span>
+<span class="go">&lt;prioritaet&gt;7&lt;/prioritaet&gt;</span>
+<span class="go">&lt;kommiauftragsnr&gt;2103839&lt;/kommiauftragsnr&gt;</span>
+<span class="go">&lt;/kommiauftrag&gt;&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.ReReadingConfigParser">
+<span id="rereadingconfigparser"></span><h2>ReReadingConfigParser<a class="headerlink" href="#module-huTools.ReReadingConfigParser" title="Permalink to this headline">¶</a></h2>
+<p>ReReadingConfigParser is designed to be mainly compatible with
+ConfigParser but checks before access to values if the
+configuration file on disk has changed and re-reads the file if
+necessary.</p>
+<p>The detection of filechange is done by comparing the mtime of the
+file with the mtime the file had when it was last read.</p>
+<p>A big difference to the original ConfigParser is that
+ReReadingConfigParser does not support setting Values or writing the
+configuration to disk.</p>
+<p>ReReadingConfigParser.read() only work with a single file not with
+lists of filenames. ReReadingConfigParser.readfp() only works with
+file like objects which have a name associated and can be
+os.stat()ed.</p>
+<p>add_section(), set(), write(), remove_option() and
+remove_section() are not supported.</p>
+<p>Authors:</p>
+<p>This Software was written by <a class="reference external" href="mailto:md&#37;&#52;&#48;hudora&#46;de">md<span>&#64;</span>hudora<span>&#46;</span>de</a> for the twisd AG,
+Bonn, Germany. The twisd AG kindly donated it as Freie Software.</p>
+</div>
+<div class="section" id="rest">
+<h2>rest<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
+<p>TBD</p>
+</div>
+<div class="section" id="module-huTools.robusttypecasts">
+<span id="robusttypecasts"></span><h2>robusttypecasts<a class="headerlink" href="#module-huTools.robusttypecasts" title="Permalink to this headline">¶</a></h2>
+<p>Module for robust typecasts.</p>
+<dl class="function">
+<dt id="huTools.robusttypecasts.float_or_0">
+<tt class="descclassname">huTools.robusttypecasts.</tt><tt class="descname">float_or_0</tt><big>(</big><em>data</em>, <em>default=0.0</em><big>)</big><a class="headerlink" href="#huTools.robusttypecasts.float_or_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper fnc. Returns data casted to a float value if possible, else to 0.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">-1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">([])</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">float_or_0</span><span class="p">(</span><span class="nb">tuple</span><span class="p">())</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.robusttypecasts.int_or_0">
+<tt class="descclassname">huTools.robusttypecasts.</tt><tt class="descname">int_or_0</tt><big>(</big><em>data</em>, <em>default=0</em><big>)</big><a class="headerlink" href="#huTools.robusttypecasts.int_or_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wandelt &#8220;None&#8221; in default, lässt alle anderen werte unverändert.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">([])</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="nb">tuple</span><span class="p">())</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_or_0</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mh">0xaffe</span><span class="p">)</span>
+<span class="go">45054</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.robusttypecasts.only_digits">
+<tt class="descclassname">huTools.robusttypecasts.</tt><tt class="descname">only_digits</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.robusttypecasts.only_digits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all non-digits from a string</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">only_digits</span><span class="p">(</span><span class="s">&#39;0123456789&#39;</span><span class="p">)</span>
+<span class="go">&#39;0123456789&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">only_digits</span><span class="p">(</span><span class="s">&#39;ab123&#39;</span><span class="p">)</span>
+<span class="go">&#39;123&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">only_digits</span><span class="p">(</span><span class="s">&#39;1abc&#39;</span><span class="p">)</span>
+<span class="go">&#39;1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">only_digits</span><span class="p">(</span><span class="s">&#39;abc&#39;</span><span class="p">)</span>
+<span class="go">&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.structured">
+<span id="structured"></span><h2>structured<a class="headerlink" href="#module-huTools.structured" title="Permalink to this headline">¶</a></h2>
+<p>structured.py - handle structured data/dicts/objects</p>
+<p>Created 2010-06-04 by Maximillian Dornseif
+Copyright (c) 2010 HUDORA. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.structured.make_struct">
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">make_struct</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#huTools.structured.make_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a dict to an object, leaves the object untouched.
+Read Only!</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.unicode">
+<span id="unicode"></span><h2>unicode<a class="headerlink" href="#module-huTools.unicode" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2007 HUDORA GmbH. BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.unicode.deUTF8">
+<tt class="descclassname">huTools.unicode.</tt><tt class="descname">deUTF8</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.unicode.deUTF8" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is meant to help with utf-8 data appearing where unicode should apperar.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.unicode.deUmlaut">
+<tt class="descclassname">huTools.unicode.</tt><tt class="descname">deUmlaut</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.unicode.deUmlaut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a text to ASCII acting smart about Umlauts.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">deUmlaut</span><span class="p">(</span><span class="s">&#39;1 Über Hügel saß René äöüÄÖÜß&#39;</span><span class="p">)</span>
+<span class="go">&#39;1 Ueber Huegel sass Rene aeoeueAeOeUess&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.world">
+<span id="world"></span><h2>world<a class="headerlink" href="#module-huTools.world" title="Permalink to this headline">¶</a></h2>
+<p>world.py - countries of the world (to be procise: countries we do buiseness with)</p>
+<p>Created by Maximillian Dornseif on 2007-05-01.
+Copyright (c) 2007 HUDORA GmbH. BSD Licensed.</p>
+<dl class="function">
+<dt id="huTools.world.in_european_union">
+<tt class="descclassname">huTools.world.</tt><tt class="descname">in_european_union</tt><big>(</big><em>isoland</em><big>)</big><a class="headerlink" href="#huTools.world.in_european_union" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt zurück, ob ein Land Mitglied der EU ist.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">in_european_union</span><span class="p">(</span><span class="s">&#39;DE&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">in_european_union</span><span class="p">(</span><span class="s">&#39;CH&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">in_european_union</span><span class="p">,</span> <span class="n">EUROPEAN_UNION</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">non_eu_countries</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="n">abrev</span> <span class="k">for</span> <span class="n">abrev</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">COUNTRY_CHOICES</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">EUROPEAN_UNION</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">any</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">in_european_union</span><span class="p">,</span> <span class="n">non_eu_countries</span><span class="p">))</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-huTools.xmltools">
+<span id="xmltools"></span><h2>xmltools<a class="headerlink" href="#module-huTools.xmltools" title="Permalink to this headline">¶</a></h2>
+<p>xmltools.py</p>
+<p>Created by Christian Klein on 2010-02-26.
+Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.xmltools.add_fields">
+<tt class="descclassname">huTools.xmltools.</tt><tt class="descname">add_fields</tt><big>(</big><em>root</em>, <em>source</em>, <em>fieldnames</em><big>)</big><a class="headerlink" href="#huTools.xmltools.add_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a number of fields to a XML Tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.xmltools.encode_text">
+<tt class="descclassname">huTools.xmltools.</tt><tt class="descname">encode_text</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#huTools.xmltools.encode_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode for usage in XML Tree</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="go">u&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="s">&#39;Alex&#39;</span><span class="p">)</span>
+<span class="go">u&#39;Alex&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="s">u&#39;Alex&#39;</span><span class="p">)</span>
+<span class="go">u&#39;Alex&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">u&#39;12&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">encode_text</span><span class="p">))</span>
+<span class="go">u&#39;True&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encode_text</span><span class="p">(</span><span class="nb">callable</span><span class="p">)</span>
+<span class="go">u&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#module-huTools.async">async</a></li>
+<li><a class="reference internal" href="#module-huTools.bank">bank</a></li>
+<li><a class="reference internal" href="#module-huTools.calendar.formats">calendar</a></li>
+<li><a class="reference internal" href="#module-huTools.checksumming">checksumming</a></li>
+<li><a class="reference internal" href="#couch">couch</a></li>
+<li><a class="reference internal" href="#module-huTools.daemon">daemon</a></li>
+<li><a class="reference internal" href="#module-huTools.decorators">decorators</a></li>
+<li><a class="reference internal" href="#module-huTools.fs">fs</a></li>
+<li><a class="reference internal" href="#hulint">huLint</a></li>
+<li><a class="reference internal" href="#module-huTools.humessaging">humessaging</a></li>
+<li><a class="reference internal" href="#module-huTools.luids">luids</a></li>
+<li><a class="reference internal" href="#module-huTools.NetStringIO">NetStringIO</a></li>
+<li><a class="reference internal" href="#module-huTools.obfuscation">obfuscation</a></li>
+<li><a class="reference internal" href="#module-huTools.printing">printing</a></li>
+<li><a class="reference internal" href="#module-huTools.protocols">protocols</a></li>
+<li><a class="reference internal" href="#module-huTools.ReReadingConfigParser">ReReadingConfigParser</a></li>
+<li><a class="reference internal" href="#rest">rest</a></li>
+<li><a class="reference internal" href="#module-huTools.robusttypecasts">robusttypecasts</a></li>
+<li><a class="reference internal" href="#module-huTools.structured">structured</a></li>
+<li><a class="reference internal" href="#module-huTools.unicode">unicode</a></li>
+<li><a class="reference internal" href="#module-huTools.world">world</a></li>
+<li><a class="reference internal" href="#module-huTools.xmltools">xmltools</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">huTools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changes.html"
+                        title="next chapter">Changes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="changes.html" title="Changes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="huTools"
+             >previous</a> |</li>
+        <li><a href="index.html">huTools v0.49 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2006-2010, Maximillian Dornseif.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.3.
+    </div>
+  </body>
+</html>
