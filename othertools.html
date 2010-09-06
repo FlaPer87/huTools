@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Changes &mdash; huTools v0.49 documentation</title>
+    <title>Other Tools related to huTools &mdash; huTools v0.49 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="huTools v0.49 documentation" href="index.html" />
-    <link rel="prev" title="Other Tools related to huTools" href="othertools.html" /> 
+    <link rel="next" title="Changes" href="changes.html" />
+    <link rel="prev" title="Implementation Overview" href="overview.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,7 +37,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="othertools.html" title="Other Tools related to huTools"
+          <a href="changes.html" title="Changes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Implementation Overview"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">huTools v0.49 documentation</a> &raquo;</li> 
       </ul>
@@ -47,34 +51,22 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="changes">
-<h1>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="other-tools-related-to-hutools">
+<h1>Other Tools related to huTools<a class="headerlink" href="#other-tools-related-to-hutools" title="Permalink to this headline">¶</a></h1>
+<p>We have developed a suite of tools which extend hutools for our dayly use.</p>
+<blockquote>
 <ul class="simple">
-<li>0.48:   renamed struct to structured, luids.guid128() now uses uuid1</li>
-<li>0.47p1: struct now can handle copy.copy()</li>
-<li>0.47:   huTools.rest.Client - a basic REST client</li>
-<li>0.46:   Function for retrieving the index of the week for a date</li>
-<li>0.45:   Function for rounding / truncating date(time) objects</li>
-<li>0.44:   Code Quality checks: reindent.py &amp; pep8.py</li>
-<li>0.43p1: xmltools.encode_text unterstuetzt jetzt callables</li>
-<li>0.43:   Code zur Berechnung und Validierung von IBAN</li>
-<li>0.40:   added NetStringIO</li>
-<li>0.39p3: Version Number bumped for fix in [6688] (RO)</li>
-<li>0.39p2: added obfuscation.RC4</li>
-<li>0.39p1: added daemon.daemonize</li>
-<li>0.39:   added humessaging, uniciode.deUmlaut, cleanup</li>
-<li>0.38p4: luids.guid128() for generating a 26 character GUIDs</li>
-<li>0.38p3: calendar.formats functions now default to the current time</li>
-<li>0.38p1: fixed caching, removed mobotix.py</li>
-<li>0.38:   add mobotix.py (jdiemer)</li>
-<li>0.37p1: added Israel</li>
-<li>0.37:   Added async.Future and decorators.cache_function</li>
-<li>0.36:   renamed io0 to int_or_0 and added io0 as a wrapper with a deprecation warning</li>
-<li>0.35:   robusttypecasts module added</li>
-<li>0.34:   checksumming.verify_ean() calendar.add_workdays_german(), decorators.memoize,  decorators.method_once() and decorators.func_once() added,</li>
-<li>0.32:   fs module added, huLint functionality for code rating</li>
-<li>0.31:   Fixed Installation, distribution file layout changed</li>
+<li><a class="reference external" href="http://github.com/hudora/huBarcode">huBarcode</a> - barcode Generation</li>
+<li><a class="reference external" href="http://github.com/hudora/pyJasper">pyJasper</a> - PDF generation with iReport and JasperReports</li>
+<li><a class="reference external" href="http://github.com/hudora/pyBookkeeping">pyBookkeeping</a> - access to SWIFT and other Banking standards and to the Xero API</li>
+<li><a class="reference external" href="http://github.com/hudora/pyShipping">pyShipping</a> - shipping related calculations and routing Information for DPD/Geopost</li>
+<li><a class="reference external" href="http://github.com/hudora/pyPostal">pyPostal</a> - printing and sending of letters through Pixelletter</li>
+<li><a class="reference external" href="http://github.com/hudora/huSoftM">huSoftM</a> - access to the huSoftM ERP System</li>
+<li><a class="reference external" href="http://github.com/hudora/huDjango">huDjango</a> - mist helpers for the Django Framework</li>
+<li><a class="reference external" href="http://github.com/hudora/huImages">huImages</a> - high preformance image serfing stack</li>
+<li><a class="reference external" href="http://github.com/hudora/django-googleappsauth">django-googleappsauth</a> - authentication for Django against Google Apps</li>
 </ul>
+</blockquote>
 </div>
 
 
@@ -84,11 +76,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="othertools.html"
-                        title="previous chapter">Other Tools related to huTools</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Implementation Overview</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changes.html"
+                        title="next chapter">Changes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/changes.txt"
+    <li><a href="_sources/othertools.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -118,7 +113,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="othertools.html" title="Other Tools related to huTools"
+          <a href="changes.html" title="Changes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Implementation Overview"
              >previous</a> |</li>
         <li><a href="index.html">huTools v0.49 documentation</a> &raquo;</li> 
       </ul>
