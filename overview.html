@@ -640,45 +640,6 @@ See <a class="reference external" href="http://github.com/hudora/huTools/tree/ma
 <p>Created by Maximillian Dornseif on 2009-12-27.
 Copyright (c) 2009 HUDORA. All rights reserved.</p>
 <p>Code is based on <a class="reference external" href="http://code.activestate.com/recipes/573463/">http://code.activestate.com/recipes/573463/</a></p>
-<dl class="function">
-<dt id="huTools.protocols.dicttoxml">
-<tt class="descclassname">huTools.protocols.</tt><tt class="descname">dicttoxml</tt><big>(</big><em>datadict</em>, <em>roottag='data'</em><big>)</big><a class="headerlink" href="#huTools.protocols.dicttoxml" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a dict representing one of the protocoles described in
-<a class="reference external" href="http://github.com/hudora/huTools/tree/master/doc/standards">http://github.com/hudora/huTools/tree/master/doc/standards</a> to XML.</p>
-<p>Returns an UTF-8 encoded String.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;kommiauftragsnr&quot;</span><span class="p">:</span><span class="mi">2103839</span><span class="p">,</span> <span class="s">&quot;anliefertermin&quot;</span><span class="p">:</span><span class="s">&quot;2009-11-25&quot;</span><span class="p">,</span> <span class="s">&quot;prioritaet&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
-<span class="gp">... </span><span class="s">&quot;ort&quot;</span><span class="p">:</span> <span class="s">u&quot;Hücksenwagen&quot;</span><span class="p">,</span>
-<span class="gp">... </span><span class="s">&quot;positionen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;menge&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&quot;artnr&quot;</span><span class="p">:</span> <span class="s">&quot;14640/XL&quot;</span><span class="p">,</span> <span class="s">&quot;posnr&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},],</span>
-<span class="gp">... </span><span class="s">&quot;versandeinweisungen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;guid&quot;</span><span class="p">:</span> <span class="s">&quot;2103839-XalE&quot;</span><span class="p">,</span> <span class="s">&quot;bezeichner&quot;</span><span class="p">:</span> <span class="s">&quot;avisierung48h&quot;</span><span class="p">,</span>
-<span class="gp">... </span>                         <span class="s">&quot;anweisung&quot;</span><span class="p">:</span> <span class="s">&quot;48h vor Anlieferung unter 0900-LOGISTIK avisieren&quot;</span><span class="p">},</span>
-<span class="go">...]}</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">toxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&#39;kommiauftrag&#39;</span><span class="p">)</span>
-<span class="go">&#39;&#39;&#39;&lt;kommiauftrag&gt;</span>
-<span class="go">&lt;anliefertermin&gt;2009-11-25&lt;/anliefertermin&gt;</span>
-<span class="go">&lt;positionen&gt;</span>
-<span class="go">    &lt;position&gt;</span>
-<span class="go">        &lt;posnr&gt;1&lt;/posnr&gt;</span>
-<span class="go">        &lt;menge&gt;12&lt;/menge&gt;</span>
-<span class="go">        &lt;artnr&gt;14640/XL&lt;/artnr&gt;</span>
-<span class="go">    &lt;/position&gt;</span>
-<span class="go">&lt;/positionen&gt;</span>
-<span class="go">&lt;ort&gt;H&amp;#xC3;&amp;#xBC;cksenwagen&lt;/ort&gt;</span>
-<span class="go">&lt;versandeinweisungen&gt;</span>
-<span class="go">    &lt;versandeinweisung&gt;</span>
-<span class="go">        &lt;bezeichner&gt;avisierung48h&lt;/bezeichner&gt;</span>
-<span class="go">        &lt;anweisung&gt;48h vor Anlieferung unter 0900-LOGISTIK avisieren&lt;/anweisung&gt;</span>
-<span class="go">        &lt;guid&gt;2103839-XalE&lt;/guid&gt;</span>
-<span class="go">    &lt;/versandeinweisung&gt;</span>
-<span class="go">&lt;/versandeinweisungen&gt;</span>
-<span class="go">&lt;prioritaet&gt;7&lt;/prioritaet&gt;</span>
-<span class="go">&lt;kommiauftragsnr&gt;2103839&lt;/kommiauftragsnr&gt;</span>
-<span class="go">&lt;/kommiauftrag&gt;&#39;&#39;&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
-
 </div>
 <div class="section" id="module-huTools.ReReadingConfigParser">
 <span id="rereadingconfigparser"></span><h2>ReReadingConfigParser<a class="headerlink" href="#module-huTools.ReReadingConfigParser" title="Permalink to this headline">¶</a></h2>
@@ -770,8 +731,80 @@ Bonn, Germany. The twisd AG kindly donated it as Freie Software.</p>
 <div class="section" id="module-huTools.structured">
 <span id="structured"></span><h2>structured<a class="headerlink" href="#module-huTools.structured" title="Permalink to this headline">¶</a></h2>
 <p>structured.py - handle structured data/dicts/objects</p>
-<p>Created 2010-06-04 by Maximillian Dornseif
-Copyright (c) 2010 HUDORA. All rights reserved.</p>
+<p>Created by Maximillian Dornseif on 2009-12-27.
+Created by Maximillian Dornseif on 2010-06-04.
+Copyright (c) 2009, 2010 HUDORA. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.structured.dict2et">
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">dict2et</tt><big>(</big><em>xmldict</em>, <em>roottag='data'</em>, <em>listnames=None</em><big>)</big><a class="headerlink" href="#huTools.structured.dict2et" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a dict to an Elementtree.</p>
+<p>Converts a dictionary to an XML ElementTree Element:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;nr&quot;</span><span class="p">:</span> <span class="s">&quot;xq12&quot;</span><span class="p">,</span> <span class="s">&quot;positionen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;menge&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;menge&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">ConvertDictToXml</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>&lt;data&gt;&lt;nr&gt;xq12&lt;/nr&gt;&lt;positionen&gt;&lt;item&gt;&lt;menge&gt;12&lt;/menge&gt;&lt;/item&gt;&lt;item&gt;&lt;menge&gt;2&lt;/menge&gt;&lt;/item&gt;&lt;/positionen&gt;&lt;/data&gt;</p>
+<p>Per default ecerything ins put in an enclosing &#8216;&lt;data&gt;&#8217; element. Also per default lists are converted
+to collecitons of <cite>&lt;item&gt;</cite> elements. But by provding a mapping between list names and element names,
+you van generate different elements:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;positionen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;m&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;m&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">ConvertDictToXml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">roottag</span><span class="o">=</span><span class="s">&#39;xml)</span><span class="gp">&gt;&gt;&gt; </span>
+<span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>&lt;xml&gt;&lt;positionen&gt;&lt;item&gt;&lt;m&gt;12&lt;/m&gt;&lt;/item&gt;&lt;item&gt;&lt;m&gt;2&lt;/m&gt;&lt;/item&gt;&lt;/positionen&gt;&lt;/xml&gt;</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">root</span> <span class="o">=</span> <span class="n">ConvertDictToXml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">roottag</span><span class="o">=</span><span class="s">&#39;xml, listnames={&#39;</span><span class="n">positionen</span><span class="s">&#39;: &#39;</span><span class="n">position</span><span class="s">&#39;})</span><span class="gp">&gt;&gt;&gt; </span>
+<span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="go">&lt;xml&gt;&lt;positionen&gt;&lt;position&gt;&lt;m&gt;12&lt;/m&gt;&lt;/position&gt;&lt;position&gt;&lt;m&gt;2&lt;/m&gt;&lt;/position&gt;&lt;/positionen&gt;&lt;/xml&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;kommiauftragsnr&quot;</span><span class="p">:</span><span class="mi">2103839</span><span class="p">,</span> <span class="s">&quot;anliefertermin&quot;</span><span class="p">:</span><span class="s">&quot;2009-11-25&quot;</span><span class="p">,</span> <span class="s">&quot;prioritaet&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="gp">... </span><span class="s">&quot;ort&quot;</span><span class="p">:</span> <span class="s">u&quot;Hücksenwagen&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="s">&quot;positionen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;menge&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&quot;artnr&quot;</span><span class="p">:</span> <span class="s">&quot;14640/XL&quot;</span><span class="p">,</span> <span class="s">&quot;posnr&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},],</span>
+<span class="gp">... </span><span class="s">&quot;versandeinweisungen&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s">&quot;guid&quot;</span><span class="p">:</span> <span class="s">&quot;2103839-XalE&quot;</span><span class="p">,</span> <span class="s">&quot;bezeichner&quot;</span><span class="p">:</span> <span class="s">&quot;avisierung48h&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="s">&quot;anweisung&quot;</span><span class="p">:</span> <span class="s">&quot;48h vor Anlieferung unter 0900-LOGISTIK avisieren&quot;</span><span class="p">},</span>
+<span class="go">...]}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">rtoxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s">&#39;kommiauftrag&#39;</span><span class="p">,</span> <span class="n">listnames</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;positionen&#39;</span><span class="p">:</span> <span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="s">&#39;versandeinweisungen&#39;</span><span class="p">:</span> <span class="s">&#39;versandeinweisung&#39;</span><span class="p">}))</span>
+<span class="go">&#39;&#39;&#39;&lt;kommiauftrag&gt;</span>
+<span class="go">&lt;anliefertermin&gt;2009-11-25&lt;/anliefertermin&gt;</span>
+<span class="go">&lt;positionen&gt;</span>
+<span class="go">    &lt;position&gt;</span>
+<span class="go">        &lt;posnr&gt;1&lt;/posnr&gt;</span>
+<span class="go">        &lt;menge&gt;12&lt;/menge&gt;</span>
+<span class="go">        &lt;artnr&gt;14640/XL&lt;/artnr&gt;</span>
+<span class="go">    &lt;/position&gt;</span>
+<span class="go">&lt;/positionen&gt;</span>
+<span class="go">&lt;ort&gt;H&amp;#xC3;&amp;#xBC;cksenwagen&lt;/ort&gt;</span>
+<span class="go">&lt;versandeinweisungen&gt;</span>
+<span class="go">    &lt;versandeinweisung&gt;</span>
+<span class="go">        &lt;bezeichner&gt;avisierung48h&lt;/bezeichner&gt;</span>
+<span class="go">        &lt;anweisung&gt;48h vor Anlieferung unter 0900-LOGISTIK avisieren&lt;/anweisung&gt;</span>
+<span class="go">        &lt;guid&gt;2103839-XalE&lt;/guid&gt;</span>
+<span class="go">    &lt;/versandeinweisung&gt;</span>
+<span class="go">&lt;/versandeinweisungen&gt;</span>
+<span class="go">&lt;prioritaet&gt;7&lt;/prioritaet&gt;</span>
+<span class="go">&lt;kommiauftragsnr&gt;2103839&lt;/kommiauftragsnr&gt;</span>
+<span class="go">&lt;/kommiauftrag&gt;&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.structured.dict2xml">
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">dict2xml</tt><big>(</big><em>datadict</em>, <em>roottag='data'</em>, <em>listnames=None</em><big>)</big><a class="headerlink" href="#huTools.structured.dict2xml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a dictionary to an UTF-8 encoded XML string.</p>
+<p>See also dict2et()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.structured.list2et">
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">list2et</tt><big>(</big><em>xmllist</em>, <em>root</em>, <em>elementname</em><big>)</big><a class="headerlink" href="#huTools.structured.list2et" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a dict to an Elementtree.</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="huTools.structured.make_struct">
 <tt class="descclassname">huTools.structured.</tt><tt class="descname">make_struct</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#huTools.structured.make_struct" title="Permalink to this definition">¶</a></dt>
