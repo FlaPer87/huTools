@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Implementation Overview &mdash; huTools v0.50p1 documentation</title>
+    <title>Implementation Overview &mdash; huTools v0.51 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.50p1',
+        VERSION:     '0.51',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="huTools v0.50p1 documentation" href="index.html" />
+    <link rel="top" title="huTools v0.51 documentation" href="index.html" />
     <link rel="next" title="Other Tools related to huTools" href="othertools.html" />
     <link rel="prev" title="Coding Guidelines &amp; Standartisized Dataformats" href="standards.html" /> 
   </head>
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="standards.html" title="Coding Guidelines &amp; Standartisized Dataformats"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">huTools v0.50p1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.51 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -563,6 +563,56 @@ save unless you call it more than 2**16 times per second.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-huTools.monetary">
+<span id="monetary"></span><h2>monetary<a class="headerlink" href="#module-huTools.monetary" title="Permalink to this headline">¶</a></h2>
+<p>monetary.py -</p>
+<p>Created by Christian Klein on 2010-03-25.
+Copyright (c) 2010 Christian Klein. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.monetary.cent_to_euro">
+<tt class="descclassname">huTools.monetary.</tt><tt class="descname">cent_to_euro</tt><big>(</big><em>amount</em><big>)</big><a class="headerlink" href="#huTools.monetary.cent_to_euro" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rechnet einen Cent-Betrag nach Euro um, inklusive Rundung</p>
+<p>Es wird mit ROUND_HALF_DOWN gerundet.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cent_to_euro</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="go">Decimal(&#39;1.00&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cent_to_euro</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="go">Decimal(&#39;0.50&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cent_to_euro</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Decimal(&#39;0.01&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cent_to_euro</span><span class="p">(</span><span class="s">&#39;0.1&#39;</span><span class="p">)</span>
+<span class="go">Decimal(&#39;0.00&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.monetary.euro_to_cent">
+<tt class="descclassname">huTools.monetary.</tt><tt class="descname">euro_to_cent</tt><big>(</big><em>amount</em><big>)</big><a class="headerlink" href="#huTools.monetary.euro_to_cent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rechnet einen Cent-Betrag nach Euro um, inklusive Rundung</p>
+<p>Es wird mit ROUND_HALF_DOWN gerundet.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">euro_to_cent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">Decimal(&#39;100&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euro_to_cent</span><span class="p">(</span><span class="s">&#39;0.5&#39;</span><span class="p">)</span>
+<span class="go">Decimal(&#39;50&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euro_to_cent</span><span class="p">(</span><span class="s">&#39;0.01&#39;</span><span class="p">)</span>
+<span class="go">Decimal(&#39;1&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">euro_to_cent</span><span class="p">(</span><span class="s">&#39;0.001&#39;</span><span class="p">)</span>
+<span class="go">Decimal(&#39;0&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="huTools.monetary.netto">
+<tt class="descclassname">huTools.monetary.</tt><tt class="descname">netto</tt><big>(</big><em>amount</em>, <em>tax=19</em><big>)</big><a class="headerlink" href="#huTools.monetary.netto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mehrwertsteuer aus den Preisen rausrechnen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">netto</span><span class="p">(</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s">&#39;1.19&#39;</span><span class="p">))</span>
+<span class="go">Decimal(&#39;1.00&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
 <div class="section" id="module-huTools.NetStringIO">
 <span id="netstringio"></span><h2>NetStringIO<a class="headerlink" href="#module-huTools.NetStringIO" title="Permalink to this headline">¶</a></h2>
 <p>Module for Communication via NetStrings.</p>
@@ -647,6 +697,9 @@ See <a class="reference external" href="http://github.com/hudora/huTools/tree/ma
 <p>Created by Maximillian Dornseif on 2009-12-27.
 Copyright (c) 2009 HUDORA. All rights reserved.</p>
 <p>Code is based on <a class="reference external" href="http://code.activestate.com/recipes/573463/">http://code.activestate.com/recipes/573463/</a></p>
+</div>
+<div class="section" id="pyjasper">
+<h2>pyjasper<a class="headerlink" href="#pyjasper" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-huTools.ReReadingConfigParser">
 <span id="rereadingconfigparser"></span><h2>ReReadingConfigParser<a class="headerlink" href="#module-huTools.ReReadingConfigParser" title="Permalink to this headline">¶</a></h2>
@@ -800,7 +853,7 @@ you van generate different elements:</p>
 
 <dl class="function">
 <dt id="huTools.structured.dict2xml">
-<tt class="descclassname">huTools.structured.</tt><tt class="descname">dict2xml</tt><big>(</big><em>datadict</em>, <em>roottag='data'</em>, <em>listnames=None</em><big>)</big><a class="headerlink" href="#huTools.structured.dict2xml" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">dict2xml</tt><big>(</big><em>datadict</em>, <em>roottag='data'</em>, <em>listnames=None</em>, <em>pretty=False</em><big>)</big><a class="headerlink" href="#huTools.structured.dict2xml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a dictionary to an UTF-8 encoded XML string.</p>
 <p>See also dict2et()</p>
 </dd></dl>
@@ -814,7 +867,7 @@ you van generate different elements:</p>
 
 <dl class="function">
 <dt id="huTools.structured.list2xml">
-<tt class="descclassname">huTools.structured.</tt><tt class="descname">list2xml</tt><big>(</big><em>datadict</em>, <em>root</em>, <em>elementname</em><big>)</big><a class="headerlink" href="#huTools.structured.list2xml" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">huTools.structured.</tt><tt class="descname">list2xml</tt><big>(</big><em>datadict</em>, <em>root</em>, <em>elementname</em>, <em>pretty=False</em><big>)</big><a class="headerlink" href="#huTools.structured.list2xml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a list to an UTF-8 encoded XML string.</p>
 <p>See also dict2et()</p>
 </dd></dl>
@@ -940,10 +993,12 @@ Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
 <li><a class="reference internal" href="#hulint">huLint</a></li>
 <li><a class="reference internal" href="#module-huTools.humessaging">humessaging</a></li>
 <li><a class="reference internal" href="#module-huTools.luids">luids</a></li>
+<li><a class="reference internal" href="#module-huTools.monetary">monetary</a></li>
 <li><a class="reference internal" href="#module-huTools.NetStringIO">NetStringIO</a></li>
 <li><a class="reference internal" href="#module-huTools.obfuscation">obfuscation</a></li>
 <li><a class="reference internal" href="#module-huTools.printing">printing</a></li>
 <li><a class="reference internal" href="#module-huTools.protocols">protocols</a></li>
+<li><a class="reference internal" href="#pyjasper">pyjasper</a></li>
 <li><a class="reference internal" href="#module-huTools.ReReadingConfigParser">ReReadingConfigParser</a></li>
 <li><a class="reference internal" href="#rest">rest</a></li>
 <li><a class="reference internal" href="#module-huTools.robusttypecasts">robusttypecasts</a></li>
@@ -998,7 +1053,7 @@ Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
         <li class="right" >
           <a href="standards.html" title="Coding Guidelines &amp; Standartisized Dataformats"
              >previous</a> |</li>
-        <li><a href="index.html">huTools v0.50p1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.51 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
