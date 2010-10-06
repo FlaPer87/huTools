@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Implementation Overview &mdash; huTools v0.51 documentation</title>
+    <title>Implementation Overview &mdash; huTools v0.52p1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.51',
+        VERSION:     '0.52p1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="huTools v0.51 documentation" href="index.html" />
+    <link rel="top" title="huTools v0.52p1 documentation" href="index.html" />
     <link rel="next" title="Other Tools related to huTools" href="othertools.html" />
     <link rel="prev" title="Coding Guidelines &amp; Standartisized Dataformats" href="standards.html" /> 
   </head>
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="standards.html" title="Coding Guidelines &amp; Standartisized Dataformats"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">huTools v0.51 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.52p1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -673,6 +673,45 @@ Copyright (c) 2009 HUDORA. All rights reserved.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-huTools.postmark">
+<span id="postmark"></span><h2>postmark<a class="headerlink" href="#module-huTools.postmark" title="Permalink to this headline">¶</a></h2>
+<p>postmark.py - support for the postmark mail sending API</p>
+<p>Based on pytohn-postmark (C) 2009-2010 David Martorana, Wildbit LLC, Python Software Foundation.</p>
+<p>Created by Maximillian Dornseif on 2010-09-27.
+Copyright (c) 2010 HUDORA. All rights reserved.</p>
+<dl class="function">
+<dt id="huTools.postmark.send_mail">
+<tt class="descclassname">huTools.postmark.</tt><tt class="descname">send_mail</tt><big>(</big><em>message</em>, <em>api_key=None</em><big>)</big><a class="headerlink" href="#huTools.postmark.send_mail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send the email through the Postmark system.</p>
+<p>message is a dict containing:
+Sender:         Who the email is coming from, in either</p>
+<blockquote>
+&#8220;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&#8221; or &#8220;First Last &lt;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&gt;&#8221; format</blockquote>
+<dl class="docutils">
+<dt>To:             Who to send the email to, in either</dt>
+<dd>&#8220;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&#8221; or &#8220;First Last &lt;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&gt;&#8221; format
+Can be multiple values separated by commas (limit 20)</dd>
+</dl>
+<p>Subject:        Subject of the email</p>
+<p>optional elements:
+TextBody:       Email message in plain text
+HtmlBody:       Email message in HTML
+Cc:             Who to copy the email to, in either</p>
+<blockquote>
+&#8220;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&#8221; or &#8220;First Last &lt;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&gt;&#8221; format
+Can be multiple values separated by commas (limit 20)</blockquote>
+<dl class="docutils">
+<dt>Bcc:            Who to blind copy the email to, in either</dt>
+<dd>&#8220;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&#8221; or &#8220;First Last &lt;<a class="reference external" href="mailto:name&#37;&#52;&#48;email&#46;com">name<span>&#64;</span>email<span>&#46;</span>com</a>&gt;&#8221; format
+Can be multiple values separated by commas (limit 20)</dd>
+</dl>
+<p>Tag:            Use for adding categorizations to your email
+Attachments:    A list of attachments. Attachments can be either</p>
+<blockquote>
+a list of {name, data, content_type} dicts,</blockquote>
+</dd></dl>
+
+</div>
 <div class="section" id="module-huTools.printing">
 <span id="printing"></span><h2>printing<a class="headerlink" href="#module-huTools.printing" title="Permalink to this headline">¶</a></h2>
 <p>printing.py simple minded toolkit for printing on CUPS.</p>
@@ -875,7 +914,7 @@ you van generate different elements:</p>
 <dl class="function">
 <dt id="huTools.structured.make_struct">
 <tt class="descclassname">huTools.structured.</tt><tt class="descname">make_struct</tt><big>(</big><em>obj</em>, <em>default=None</em><big>)</big><a class="headerlink" href="#huTools.structured.make_struct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a dict to an object, leaves the object untouched.</p>
+<dd><p>Converts a dict to an object, leaves objects untouched.</p>
 <p>Someting like obj.vars() = dict() - Read Only!</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span> <span class="o">=</span> <span class="n">make_struct</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">foo</span><span class="o">=</span><span class="s">&#39;bar&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obj</span><span class="o">.</span><span class="n">foo</span>
@@ -918,9 +957,12 @@ you van generate different elements:</p>
 </div>
 <div class="section" id="module-huTools.world">
 <span id="world"></span><h2>world<a class="headerlink" href="#module-huTools.world" title="Permalink to this headline">¶</a></h2>
-<p>world.py - countries of the world (to be procise: countries we do buiseness with)</p>
+<p>hutools/world - countries of the world (to be procise: countries we do buiseness with)</p>
+<p>Most interesting are the constants COUNTRY_CHOICES and COUNTRIES.</p>
+<p>COUNTRY_CHOICES = [(&#8216;DE&#8217;, &#8216;Deutschland&#8217;), (&#8216;AT&#8217;, u&#8217;Österreich&#8217;), ...]
+COUNTRIES = [&#8216;DE&#8217;, &#8216;AT&#8217;, ...]</p>
 <p>Created by Maximillian Dornseif on 2007-05-01.
-Copyright (c) 2007 HUDORA GmbH. BSD Licensed.</p>
+Copyright (c) 2007, 2010 HUDORA GmbH. BSD Licensed.</p>
 <dl class="function">
 <dt id="huTools.world.in_european_union">
 <tt class="descclassname">huTools.world.</tt><tt class="descname">in_european_union</tt><big>(</big><em>isoland</em><big>)</big><a class="headerlink" href="#huTools.world.in_european_union" title="Permalink to this definition">¶</a></dt>
@@ -996,6 +1038,7 @@ Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
 <li><a class="reference internal" href="#module-huTools.monetary">monetary</a></li>
 <li><a class="reference internal" href="#module-huTools.NetStringIO">NetStringIO</a></li>
 <li><a class="reference internal" href="#module-huTools.obfuscation">obfuscation</a></li>
+<li><a class="reference internal" href="#module-huTools.postmark">postmark</a></li>
 <li><a class="reference internal" href="#module-huTools.printing">printing</a></li>
 <li><a class="reference internal" href="#module-huTools.protocols">protocols</a></li>
 <li><a class="reference internal" href="#pyjasper">pyjasper</a></li>
@@ -1053,7 +1096,7 @@ Copyright (c) 2010 HUDORA GmbH. All rights reserved.</p>
         <li class="right" >
           <a href="standards.html" title="Coding Guidelines &amp; Standartisized Dataformats"
              >previous</a> |</li>
-        <li><a href="index.html">huTools v0.51 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.52p1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
