@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Changes &mdash; huTools v0.53 documentation</title>
+    <title>Changes &mdash; huTools v0.60 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.53',
+        VERSION:     '0.60',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="huTools v0.53 documentation" href="index.html" />
+    <link rel="top" title="huTools v0.60 documentation" href="index.html" />
     <link rel="prev" title="Other Tools related to huTools" href="othertools.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="othertools.html" title="Other Tools related to huTools"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">huTools v0.53 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.60 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,37 +49,83 @@
             
   <div class="section" id="changes">
 <h1>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>0.53:   poster_encode contains Chris AtLee&#8217;s code for form upload</li>
-<li>0.52p1  Ported JasperGenerator.get_report from pyJasper</li>
-<li>0.52:   postmark API client - see <a class="reference external" href="http://postmarkapp.com/">http://postmarkapp.com/</a></li>
-<li>0.51    pyjasper - Client for the pyJasper toolkit</li>
-<li>0.50:   monetary - easy but often used monetary functions</li>
-<li>0.49:   depreciated huTools.protocols, removed huTools.struct</li>
-<li>0.48:   renamed struct to structured, luids.guid128() now uses uuid1</li>
-<li>0.47p1: struct now can handle copy.copy()</li>
-<li>0.47:   huTools.rest.Client - a basic REST client</li>
-<li>0.46:   Function for retrieving the index of the week for a date</li>
-<li>0.45:   Function for rounding / truncating date(time) objects</li>
-<li>0.44:   Code Quality checks: reindent.py &amp; pep8.py</li>
-<li>0.43p1: xmltools.encode_text unterstuetzt jetzt callables</li>
-<li>0.43:   Code zur Berechnung und Validierung von IBAN</li>
-<li>0.40:   added NetStringIO</li>
-<li>0.39p3: Version Number bumped for fix in [6688] (RO)</li>
-<li>0.39p2: added obfuscation.RC4</li>
-<li>0.39p1: added daemon.daemonize</li>
-<li>0.39:   added humessaging, uniciode.deUmlaut, cleanup</li>
-<li>0.38p4: luids.guid128() for generating a 26 character GUIDs</li>
-<li>0.38p3: calendar.formats functions now default to the current time</li>
-<li>0.38p1: fixed caching, removed mobotix.py</li>
-<li>0.38:   add mobotix.py (jdiemer)</li>
-<li>0.37p1: added Israel</li>
-<li>0.37:   Added async.Future and decorators.cache_function</li>
-<li>0.36:   renamed io0 to int_or_0 and added io0 as a wrapper with a deprecation warning</li>
-<li>0.35:   robusttypecasts module added</li>
-<li>0.34:   checksumming.verify_ean() calendar.add_workdays_german(), decorators.memoize,  decorators.method_once() and decorators.func_once() added,</li>
-<li>0.32:   fs module added, huLint functionality for code rating</li>
-<li>0.31:   Fixed Installation, distribution file layout changed</li>
+<ul>
+<li><p class="first">0.60:   huTools.http API and function-based pyJasper Interface. Dependencie Reduction</p>
+<blockquote>
+<p>This version introduces a HTTP-API menat to allow easy use on pure Python and AppEngine plattforms.
+All other huTools modules should reley on them instead of httplib2 and others.</p>
+<p>pyjasper now comes with an non Object Oriented interface and also strips timestamps from generated
+PDFs to ensure the same input generates EXACTLY the same output.</p>
+<p>use hujson instead of simplejson, alsp big cleanup, github-tools/paver for documentation, better
+documentation at <a class="reference external" href="http://hudora.github.com/huTools/">http://hudora.github.com/huTools/</a> , hujson, rework of the structured module, Python
+2.5, Google AppEngine compabitility (also in hujson), reduced dependencies, http - a simple http
+client, unified credential configuration for postmark and jasper, support for signing in pyJasper,</p>
+</blockquote>
+</li>
+<li><p class="first">0.53p2: calendar.formats.convert_to_datetime() added convert_to_date() is more robust now</p>
+</li>
+<li><p class="first">0.53p1: Bugfix for _convert_dict_to_xml_recurse: Do not translate None to &#8216;None&#8217;</p>
+</li>
+<li><p class="first">0.53:   poster_encode contains Chris AtLee&#8217;s code for form upload</p>
+</li>
+<li><p class="first">0.52p1  Ported JasperGenerator.get_report from pyJasper</p>
+</li>
+<li><p class="first">0.52:   postmark API client - see <a class="reference external" href="http://postmarkapp.com/">http://postmarkapp.com/</a></p>
+</li>
+<li><p class="first">0.51    pyjasper - Client for the pyJasper toolkit</p>
+</li>
+<li><p class="first">0.50:   monetary - easy but often used monetary functions</p>
+</li>
+<li><p class="first">0.49:   depreciated huTools.protocols, removed huTools.struct</p>
+</li>
+<li><p class="first">0.48:   renamed struct to structured, luids.guid128() now uses uuid1</p>
+</li>
+<li><p class="first">0.47p1: struct now can handle copy.copy()</p>
+</li>
+<li><p class="first">0.47:   huTools.rest.Client - a basic REST client</p>
+</li>
+<li><p class="first">0.46:   Function for retrieving the index of the week for a date</p>
+</li>
+<li><p class="first">0.45:   Function for rounding / truncating date(time) objects</p>
+</li>
+<li><p class="first">0.44:   Code Quality checks: reindent.py &amp; pep8.py</p>
+</li>
+<li><p class="first">0.43p1: xmltools.encode_text unterstuetzt jetzt callables</p>
+</li>
+<li><p class="first">0.43:   Code zur Berechnung und Validierung von IBAN</p>
+</li>
+<li><p class="first">0.40:   added NetStringIO</p>
+</li>
+<li><p class="first">0.39p3: Version Number bumped for fix in [6688] (RO)</p>
+</li>
+<li><p class="first">0.39p2: added obfuscation.RC4</p>
+</li>
+<li><p class="first">0.39p1: added daemon.daemonize</p>
+</li>
+<li><p class="first">0.39:   added humessaging, uniciode.deUmlaut, cleanup</p>
+</li>
+<li><p class="first">0.38p4: luids.guid128() for generating a 26 character GUIDs</p>
+</li>
+<li><p class="first">0.38p3: calendar.formats functions now default to the current time</p>
+</li>
+<li><p class="first">0.38p1: fixed caching, removed mobotix.py</p>
+</li>
+<li><p class="first">0.38:   add mobotix.py (jdiemer)</p>
+</li>
+<li><p class="first">0.37p1: added Israel</p>
+</li>
+<li><p class="first">0.37:   Added async.Future and decorators.cache_function</p>
+</li>
+<li><p class="first">0.36:   renamed io0 to int_or_0 and added io0 as a wrapper with a deprecation warning</p>
+</li>
+<li><p class="first">0.35:   robusttypecasts module added</p>
+</li>
+<li><p class="first">0.34:   checksumming.verify_ean() calendar.add_workdays_german(), decorators.memoize,  decorators.method_once() and decorators.func_once() added,</p>
+</li>
+<li><p class="first">0.32:   fs module added, huLint functionality for code rating</p>
+</li>
+<li><p class="first">0.31:   Fixed Installation, distribution file layout changed</p>
+</li>
 </ul>
 <div class="section" id="historic-code">
 <h2>Historic Code<a class="headerlink" href="#historic-code" title="Permalink to this headline">¶</a></h2>
@@ -139,7 +185,7 @@
         <li class="right" >
           <a href="othertools.html" title="Other Tools related to huTools"
              >previous</a> |</li>
-        <li><a href="index.html">huTools v0.53 documentation</a> &raquo;</li> 
+        <li><a href="index.html">huTools v0.60 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
