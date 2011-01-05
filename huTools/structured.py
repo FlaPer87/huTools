@@ -9,19 +9,8 @@ structured.py - handle structured data/dicts/objects
 # Copyright (c) 2009, 2010 HUDORA. All rights reserved.
 
 
-import collections
-import logging
-import os.path
-import sys
 import warnings
 import xml.etree.cElementTree as ET
-
-
-# TODO: move to hujson
-try:
-    from django.utils import simplejson as json # Google appengine
-except:
-    import simplejson as json
 
 
 # siehe http://stackoverflow.com/questions/1305532/convert-python-dict-to-object
@@ -32,6 +21,7 @@ class Struct(object):
         self.__dict__.update(entries)
         self.default = default
         self.nodefault = nodefault
+        self._source = entries
 
     def __getattr__(self, name):
         if self.nodefault:
@@ -43,7 +33,7 @@ class Struct(object):
         return self.default
 
     def __getitem__(self, key):
-        warnings.warn("dict_accss[foo] on a Struct, use object_access.foo instead",
+        warnings.warn("dict_access[foo] on a Struct, use object_access.foo instead",
                        DeprecationWarning, stacklevel=2)
         if self.nodefault:
             return self.__dict__[key]
@@ -54,6 +44,10 @@ class Struct(object):
             return self.__dict__[key]
         return default
 
+    def as_dict(self):
+        """Get a copy of the original dict"""
+        return dict(self._source)
+
     def __contains__(self, item):
         return item in self.__dict__
 
@@ -61,7 +55,7 @@ class Struct(object):
         return "<Struct: %r>" % self.__dict__
 
 
-def make_struct(obj, default=None, nodefault=False):
+def make_struct(obj, default=None, nodefault=False, recursive=True):
     """Converts a dict to an object, leaves objects untouched.
 
     Someting like obj.vars() = dict() - Read Only!
@@ -88,8 +82,9 @@ def make_struct(obj, default=None, nodefault=False):
         # this should be a dict
         struc = Struct(obj, default, nodefault)
         # handle recursive sub-dicts
-        for k, v in obj.items():
-            setattr(struc, k, make_struct(v, default, nodefault))
+        if recursive:
+            for k, v in obj.items():
+                setattr(struc, k, make_struct(v, default, nodefault, recursive))
         return struc
     else:
         return obj
